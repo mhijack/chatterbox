@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="channel_user_list">
+        Users in channel "{{ channel_info["name"] }}":
+        {% for user in channel_info["users"]: %}
+            <p>- {{ user }}</p>
+        {% endfor %}
+    </div>
+
+    <a href="{{ url_for('chat') }}"><button>Return to channel list.</button></a>
+
+{% endblock %}

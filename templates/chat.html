@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block header %}
+
+    <div class="user_list">
+
+        <p><u>Online Users:</u></p>
+
+        <ul>
+            {% for user in users_list: %}
+                <li>{{ user }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="channel_list">
+
+        <p><u>Channel List:</u></p>
+
+        <ul class="channel_list_ul">
+            {% for channel in channel_list: %}
+                <li><a href="/channel/{{ channel }}">{{ channel }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <input class="room_name" type="text" required>
+        <button class="create">Create Channel</button>
+    </div>
+
+{% endblock %}

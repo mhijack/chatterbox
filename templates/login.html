@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Please enter your name:
+{% endblock %}
+
+
+{% block body %}
+
+    <form action="/register" method="POST" id="username">
+
+        <label for="username">Username</label>
+        <input name="username" type="text">
+        <input type="submit">
+
+    </form>
+
+{% endblock %}

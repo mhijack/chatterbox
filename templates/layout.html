@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+    {% if (session["username"]): %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <p>Logged in as {{ session["username"] }}</p>
+    {% else: %}
+        <a href="/ ">Log in</a>
+    {% endif %}
+
+
+    <!-- Flash Message -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages: %}
+            {% for message in messages %}
+                <p class="flash">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <!-- End Flash Message -->
+
+
+    {% block header %}
+    {% endblock %}
+
+
+    {% block heading %}
+    {% endblock %}
+
+
+    {% block body %}
+    {% endblock %}
+
+
+    {% block footer %}
+    {% endblock %}
+
+</body>
+</html>
